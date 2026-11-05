@@ -2,11 +2,11 @@ clear;
 clc;
 
 % Archivo FIG
-archivo_fig = '/home/gaspichou/Documents/git/permutation_entropy/DBT2_article/figures/behavior_class_v2.fig';
+archivo_fig = '/home/gaspichou/Documents/git/DBT2-permutation-entropy/DBT2_article/figures/m_t_WPE.fig';
 
 
 % Archivo PDF
-archivo_pdf = '/home/gaspichou/Documents/git/permutation_entropy/DBT2_article/figures/behavior_class_v2.pdf';
+archivo_pdf = '/home/gaspichou/Documents/git/DBT2-permutation-entropy/DBT2_article/figures/m_t_WPE.pdf';
 
 % Abrir figura
 h = openfig(archivo_fig, 'invisible');

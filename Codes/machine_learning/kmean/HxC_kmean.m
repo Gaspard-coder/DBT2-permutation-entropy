@@ -76,8 +76,8 @@ legend('FontSize', 14);
 plot(C_euclidean(:, 1), C_euclidean(:, 2), 'kp', 'MarkerSize', 14, ...
     'MarkerFaceColor', 'y', 'LineWidth', 1.5, 'DisplayName', 'Euclidean Centroids');
 
-xlabel('Normalized Permutation Entropy H','FontSize', 14, 'FontWeight','bold');
-ylabel('Complexity C','FontSize', 14, 'FontWeight','bold');
+xlabel('Normalized Permutation Entropy (H)','FontSize', 14, 'FontWeight','bold');
+ylabel('Complexity (C)','FontSize', 14, 'FontWeight','bold');
 title(sprintf('HxC K-Means (Acc: %.1f%%, F1: %.2f, Sens: %.2f, Spec: %.2f)', ...
     acc * 100, F1, sensitivity, specificity));
 legend('Location', 'best');

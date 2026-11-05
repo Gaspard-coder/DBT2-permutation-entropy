@@ -9,7 +9,7 @@ function [H_mean1, C_mean1, H_mean2, C_mean2, H_std1, C_std1, H_std2, C_std2] = 
 %     data_folder2: path to the second folder with .mat files
 %
 % Output:
-%     Plot comparing the two areas, their centroids, and std deviation bars.
+%     Plot comparing the two areas, their barycentres, and std deviation bars.
 %     H_std1, C_std1: Std deviation for Folder 1
 %     H_std2, C_std2: Std deviation for Folder 2
 % =========================================================================
@@ -43,28 +43,28 @@ h_area2 = scatter(H_vals2, C_vals2, 40, 'red' , 'filled', ...
     'MarkerFaceAlpha', 0.6, 'MarkerEdgeColor', 'none', ...
     'DisplayName', sprintf('Signals: %s', name2));
 
-% D. Plot the centroid and Std Dev for Folder 1 (Blue marker)
+% D. Plot the barycentre and Std Dev for Folder 1 (Blue marker)
 h_std1 = errorbar(H_mean1, C_mean1, C_std1, C_std1, H_std1, H_std1, 'o', ...
     'MarkerSize', 8, 'MarkerEdgeColor', 'k', 'MarkerFaceColor', [0 0.45 0.74], ...
     'Color', [0 0.45 0.74], 'LineWidth', 1.5, ...
-    'DisplayName', sprintf('Centroid 1 (%s)\nH_{st}=%.3f, C_{st}=%.3f', name1, H_std1, C_std1));
+    'DisplayName', sprintf('Barycentre 1 (%s)\nH_{st}=%.3f, C_{st}=%.3f', name1, H_std1, C_std1));
 
-% E. Plot the centroid and Std Dev for Folder 2 (Red marker)
+% E. Plot the barycentre and Std Dev for Folder 2 (Red marker)
 h_std2 = errorbar(H_mean2, C_mean2, C_std2, C_std2, H_std2, H_std2, 'o', ...
     'MarkerSize', 8, 'MarkerEdgeColor', 'k', 'MarkerFaceColor', [0.85 0.33 0.1], ...
     'Color', [0.85 0.33 0.1], 'LineWidth', 1.5, ...
-    'DisplayName', sprintf('Centroid 2 (%s)\nH_{st}=%.3f, C_{st}=%.3f', name2, H_std2, C_std2));
+    'DisplayName', sprintf('Barycentre 2 (%s)\nH_{st}=%.3f, C_{st}=%.3f', name2, H_std2, C_std2));
 
 % F. Formatting
-xlabel('Normalized Weigthed Permutation Entropy H', 'FontSize', 14, 'FontWeight', 'bold');
-ylabel('Complexity C', 'FontSize', 14, 'FontWeight', 'bold');
+xlabel('Normalized Weigthed Permutation Entropy (W)', 'FontSize', 14, 'FontWeight', 'bold');
+ylabel('Complexity (C)', 'FontSize', 14, 'FontWeight', 'bold');
 %title(sprintf('Comparison: %s vs %s (m=%d, t=%d)', name1, name2, m, t), ...
 %    'FontSize', 14, 'FontWeight', 'bold', 'Interpreter', 'none');
 
 xlim([0 1]);
 max_c = max([C_max(:); C_vals1(:); C_vals2(:)]);
 ylim([0 max_c * 1.15]);
-legend([h_cmax; h_cmin; h_area1; h_area2; h_std1; h_std2], 'Location', 'northeastoutside', 'Interpreter', 'none');
+legend([h_cmax; h_cmin; h_area1; h_area2; h_std1; h_std2], 'Location', 'northeastoutside', 'Interpreter', 'tex');
 hold off;
 end
 
@@ -117,7 +117,7 @@ C_mean = mean(C_vals);
 H_std = std(H_vals);
 C_std = std(C_vals);
 
-fprintf('-> Centroid: H = %.4f | C = %.4f\n', H_mean, C_mean);
+fprintf('-> Barycentre: H = %.4f | C = %.4f\n', H_mean, C_mean);
 fprintf('-> Std Dev : H = %.4f | C = %.4f\n', H_std, C_std);
 
 % Safe folder name extraction
